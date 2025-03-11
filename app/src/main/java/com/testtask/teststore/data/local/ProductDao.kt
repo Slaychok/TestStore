@@ -1,11 +1,12 @@
 package com.testtask.teststore.data.local
 
 import androidx.room.*
+import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface ProductDao {
     @Query("SELECT * FROM products")
-    suspend fun getAllProducts(): List<ProductEntity>
+    fun getAllProducts(): Flow<List<ProductEntity>> // Используем Flow
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertProduct(product: ProductEntity)
@@ -17,5 +18,5 @@ interface ProductDao {
     suspend fun deleteProduct(product: ProductEntity)
 
     @Query("SELECT * FROM products WHERE name LIKE '%' || :query || '%'")
-    suspend fun searchProducts(query: String): List<ProductEntity>
+    fun searchProducts(query: String): Flow<List<ProductEntity>> // Тоже Flow
 }

@@ -3,6 +3,7 @@ package com.testtask.teststore.data.local
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import androidx.room.TypeConverters
+import com.testtask.teststore.domain.model.Product
 
 @Entity(tableName = "products")
 @TypeConverters(Converters::class)

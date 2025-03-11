@@ -1,9 +1,12 @@
 package com.testtask.teststore.data.repository
 
+import com.testtask.teststore.data.local.ProductDao
+import com.testtask.teststore.data.local.toEntity
 import com.testtask.teststore.domain.model.Product
 import com.testtask.teststore.domain.repository.ProductRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
+import com.testtask.teststore.data.local.toDomain
 
 class ProductRepositoryImpl(private val dao: ProductDao) : ProductRepository {
     override fun getAllProducts(): Flow<List<Product>> {
