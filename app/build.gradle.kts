@@ -61,14 +61,16 @@ dependencies {
     debugImplementation(libs.androidx.ui.test.manifest)
 
     // Hilt
-    implementation("com.google.dagger:hilt-android:2.51.1")
-    kapt("com.google.dagger:hilt-android-compiler:2.51.1")
-
+    implementation(libs.hilt.android)
+    kapt(libs.hilt.android.compiler)
+    implementation(libs.androidx.lifecycle.viewmodel.compose)
+    implementation(libs.androidx.hilt.navigation.compose)
     // Room
-    implementation ("androidx.room:room-runtime:2.6.1") // Библиотека "Room"
-    kapt ("androidx.room:room-compiler:2.6.1") // Кодогенератор
-    implementation ("androidx.room:room-ktx:2.6.1") // Дополнительно для Kotlin Coroutines, Kotlin Flows
-
-    //
-    implementation ("com.google.code.gson:gson:2.12.1")
+    implementation(libs.androidx.room.runtime)
+    kapt(libs.androidx.room.compiler)
+    implementation(libs.androidx.room.ktx)
+    // Gson
+    implementation(libs.gson)
+    // Material-icons
+    implementation(libs.androidx.material.icons.extended)
 }

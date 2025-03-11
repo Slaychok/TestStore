@@ -1,10 +1,9 @@
 package com.testtask.teststore.domain.model
 
 data class Product(
-    val id: Int = 0,
+    val id: Int,
     val name: String,
-    val description: String,
-    val price: Double,
-    val quantity: Int,
-    val tags: List<String>
+    val time: Long,
+    val tags: List<String>,
+    val amount: Int
 )
