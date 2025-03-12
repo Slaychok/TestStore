@@ -19,8 +19,10 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
+import com.testtask.teststore.R
 import com.testtask.teststore.domain.model.Product
 
 @Composable
@@ -35,15 +37,15 @@ fun EditQuantityDialog(
         onDismissRequest = onDismiss,
         confirmButton = {
             TextButton(onClick = { onConfirm(quantity) }) {
-                Text("Принять", color = Color.Blue)
+                Text(stringResource(R.string.accept), color = Color.Blue)
             }
         },
         dismissButton = {
             TextButton(onClick = onDismiss) {
-                Text("Отмена", color = Color.Black)
+                Text(stringResource(R.string.cancel), color = Color.Black)
             }
         },
-        title = { Text("Количество товара") },
+        title = { Text(stringResource(R.string.quantity)) },
         text = {
             Row(
                 modifier = Modifier.fillMaxWidth(),
@@ -53,7 +55,7 @@ fun EditQuantityDialog(
                 IconButton(onClick = { if (quantity > 0) quantity-- }) {
                     Icon(
                         imageVector = Icons.Filled.Remove,
-                        contentDescription = "Уменьшить"
+                        contentDescription = stringResource(R.string.reduce)
                     )
                 }
 
@@ -62,7 +64,7 @@ fun EditQuantityDialog(
                 IconButton(onClick = { quantity++ }) {
                     Icon(
                         imageVector = Icons.Filled.Add,
-                        contentDescription = "Увеличить"
+                        contentDescription = stringResource(R.string.increase)
                     )
                 }
             }

@@ -2,4 +2,15 @@
     <string name="app_name">TestStore</string>
     <string name="list_of_products">Список товаров</string>
     <string name="search_for_products">Поиск товаров</string>
+    <string name="in_stock">На складе</string>
+    <string name="date_added">Дата добавления</string>
+    <string name="removing_product">Удаление товара</string>
+    <string name="do_you_want_to_delete">Вы действительно хотите удалить \"%1$s\"?</string>
+    <string name="yes">Да</string>
+    <string name="no">Нет</string>
+    <string name="accept">Принять</string>
+    <string name="cancel">Отмена</string>
+    <string name="quantity">Количество товара</string>
+    <string name="reduce">Уменьшить</string>
+    <string name="increase">Увеличить</string>
 </resources>

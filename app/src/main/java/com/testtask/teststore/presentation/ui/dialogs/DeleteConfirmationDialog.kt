@@ -5,6 +5,8 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
+import com.testtask.teststore.R
 import com.testtask.teststore.domain.model.Product
 
 @Composable
@@ -17,15 +19,15 @@ fun DeleteConfirmationDialog(
         onDismissRequest = onDismiss,
         confirmButton = {
             TextButton(onClick = onConfirm) {
-                Text("Да", color = Color.Red)
+                Text(stringResource(R.string.yes), color = Color.Red)
             }
         },
         dismissButton = {
             TextButton(onClick = onDismiss) {
-                Text("Нет", color = Color.Black)
+                Text(stringResource(R.string.no), color = Color.Black)
             }
         },
-        title = { Text("Удаление товара") },
-        text = { Text("Вы действительно хотите удалить \"${product.name}\"?") }
+        title = { Text(stringResource(R.string.removing_product)) },
+        text = { Text(stringResource(R.string.do_you_want_to_delete, product.name)) }
     )
 }

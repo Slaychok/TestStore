@@ -22,8 +22,10 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import com.testtask.teststore.R
 import com.testtask.teststore.domain.model.Product
 import com.testtask.teststore.utils.formatDate
 
@@ -65,7 +67,7 @@ fun ProductItem(
                 horizontalArrangement = Arrangement.SpaceBetween
             ) {
                 Column {
-                    Text(text = "На складе", style = MaterialTheme.typography.bodyMedium)
+                    Text(text = stringResource(R.string.in_stock), style = MaterialTheme.typography.bodyMedium)
                     Text(
                         text = "${product.amount}",
                         style = MaterialTheme.typography.bodyLarge,
@@ -74,7 +76,7 @@ fun ProductItem(
                 }
 
                 Column {
-                    Text(text = "Дата добавления", style = MaterialTheme.typography.bodyMedium)
+                    Text(text = stringResource(R.string.date_added), style = MaterialTheme.typography.bodyMedium)
                     Text(
                         text = formatDate(product.time),
                         style = MaterialTheme.typography.bodyLarge,
