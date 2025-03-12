@@ -1,9 +1,9 @@
 package com.testtask.teststore.data.mappers
 
-import com.testtask.teststore.data.local.ProductEntity
+import com.testtask.teststore.data.local.ProductDbo
 import com.testtask.teststore.domain.model.Product
 
-fun ProductEntity.toDomain(): Product {
+fun ProductDbo.toDomain(): Product {
     return Product(
         id = this.id,
         name = this.name,
@@ -13,8 +13,8 @@ fun ProductEntity.toDomain(): Product {
     )
 }
 
-fun Product.toEntity(): ProductEntity {
-    return ProductEntity(
+fun Product.toEntity(): ProductDbo {
+    return ProductDbo(
         id = this.id,
         name = this.name,
         time = this.time,

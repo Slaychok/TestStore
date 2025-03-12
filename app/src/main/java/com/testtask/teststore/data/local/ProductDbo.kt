@@ -6,7 +6,7 @@ import androidx.room.TypeConverters
 
 @Entity(tableName = "products")
 @TypeConverters(Converters::class)
-data class ProductEntity(
+data class ProductDbo(
     @PrimaryKey(autoGenerate = true) val id: Int = 0,
     val name: String,
     val time: Long,
