@@ -1,6 +1,5 @@
 package com.testtask.teststore.data.repository
 
-import android.util.Log
 import com.testtask.teststore.data.local.ProductDao
 import com.testtask.teststore.data.mappers.toEntity
 import com.testtask.teststore.domain.model.Product
@@ -12,7 +11,6 @@ import com.testtask.teststore.data.mappers.toDomain
 class ProductRepositoryImpl(private val dao: ProductDao) : ProductRepository {
     override fun getAllProducts(): Flow<List<Product>> {
         return dao.getAllProducts().map { list ->
-            Log.d("ProductRepositoryImpl", "Loaded ${list.size} products from DB")
             list.map { it.toDomain() }
         }
     }
