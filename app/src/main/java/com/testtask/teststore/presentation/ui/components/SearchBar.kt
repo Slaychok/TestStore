@@ -20,6 +20,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.unit.dp
 import com.testtask.teststore.R
+import com.testtask.teststore.presentation.ui.theme.MyBlue
 
 @Composable
 fun SearchBar(searchQuery: String, onSearchChange: (String) -> Unit, onClear: () -> Unit) {
@@ -41,8 +42,8 @@ fun SearchBar(searchQuery: String, onSearchChange: (String) -> Unit, onClear: ()
             .padding(4.dp),
         shape = RoundedCornerShape(8.dp),
         colors = TextFieldDefaults.colors(
-            focusedContainerColor = Color(0xFFD7EBFF),
-            unfocusedContainerColor = Color(0xFFD7EBFF),
+            focusedContainerColor = MyBlue,
+            unfocusedContainerColor = MyBlue,
             focusedIndicatorColor = Color.Transparent,
             unfocusedIndicatorColor = Color.Transparent,
 

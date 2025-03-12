@@ -18,6 +18,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.testtask.teststore.R
 import com.testtask.teststore.presentation.ui.screens.ProductScreen
+import com.testtask.teststore.presentation.ui.theme.MyBlue
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -41,7 +42,7 @@ class MainActivity : ComponentActivity() {
                                     style = MaterialTheme.typography.titleLarge,
                                 )
                             }, colors = TopAppBarDefaults.topAppBarColors(
-                                containerColor = Color(0xFFD7EBFF)
+                                containerColor = MyBlue
                             )
                         )
                     }) { paddingValues ->

@@ -15,6 +15,7 @@ import com.testtask.teststore.presentation.ui.components.ProductItem
 import com.testtask.teststore.presentation.ui.components.SearchBar
 import com.testtask.teststore.presentation.ui.dialogs.DeleteConfirmationDialog
 import com.testtask.teststore.presentation.ui.dialogs.EditQuantityDialog
+import com.testtask.teststore.presentation.ui.theme.MyBlueBack
 import com.testtask.teststore.presentation.viewmodels.ProductViewModel
 
 @Composable
@@ -31,7 +32,7 @@ fun ProductScreen(
     ClearFocusContainer(
         modifier = modifier
             .fillMaxSize()
-            .background(Color(0xFFB3E5FC))
+            .background(MyBlueBack)
             .padding(16.dp)
     ) {
         Column(
