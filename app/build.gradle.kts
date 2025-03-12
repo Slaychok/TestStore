@@ -73,4 +73,7 @@ dependencies {
     implementation(libs.gson)
     // Material-icons
     implementation(libs.androidx.material.icons.extended)
+    // Tests
+    testImplementation(libs.kotlinx.coroutines.test)
+    testImplementation(libs.mockk)
 }
