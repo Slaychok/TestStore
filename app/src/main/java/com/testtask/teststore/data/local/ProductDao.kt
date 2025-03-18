@@ -28,4 +28,3 @@ interface ProductDao {
     @Query("SELECT * FROM products WHERE name LIKE '%' || :query || '%'")
     fun searchProducts(query: String): Flow<List<ProductDbo>>
 }
-
