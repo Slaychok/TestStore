@@ -10,7 +10,7 @@ import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface ProductDao {
-    @Query("SELECT * FROM products")
+    @Query("SELECT * FROM item")
     fun getAllProducts(): Flow<List<ProductDbo>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
@@ -25,6 +25,6 @@ interface ProductDao {
     @Delete
     suspend fun deleteProduct(product: ProductDbo)
 
-    @Query("SELECT * FROM products WHERE name LIKE '%' || :query || '%'")
+    @Query("SELECT * FROM item WHERE name LIKE '%' || :query || '%'")
     fun searchProducts(query: String): Flow<List<ProductDbo>>
 }

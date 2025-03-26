@@ -5,10 +5,12 @@ import androidx.lifecycle.viewModelScope
 import com.testtask.teststore.domain.model.Product
 import com.testtask.teststore.domain.usecase.*
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
+@OptIn(ExperimentalCoroutinesApi::class)
 @HiltViewModel
 class ProductViewModel @Inject constructor(
     private val getProductsUseCase: GetProductsUseCase,
@@ -20,39 +22,44 @@ class ProductViewModel @Inject constructor(
     private val _searchQuery = MutableStateFlow("")
     val searchQuery = _searchQuery.asStateFlow()
 
+    private val _refreshTrigger = MutableStateFlow(Unit)
+
     private val _products = MutableStateFlow<List<Product>>(emptyList())
     val products: StateFlow<List<Product>> = _products
 
     init {
-        loadProducts()
-    }
-
-    fun loadProducts() {
         viewModelScope.launch {
-            getProductsUseCase()
-                .collect { _products.value = it }
+            combine(_searchQuery, _refreshTrigger) { query, _ -> query }
+                .flatMapLatest { query ->
+                    if (query.isBlank()) {
+                        getProductsUseCase()
+                    } else {
+                        searchProductsUseCase(query)
+                    }
+                }
+                .collect { result ->
+                    _products.value = result
+                }
         }
     }
 
     fun searchProducts(query: String) {
         _searchQuery.value = query
-        viewModelScope.launch {
-            searchProductsUseCase(query)
-                .collect { _products.value = it }
-        }
     }
 
     fun deleteProduct(product: Product) {
         viewModelScope.launch {
             deleteProductUseCase(product)
-            loadProducts()
+            _refreshTrigger.value = Unit
         }
     }
 
     fun updateProduct(product: Product) {
         viewModelScope.launch {
             updateProductUseCase(product)
-            loadProducts()
+            _refreshTrigger.value = Unit
         }
     }
 }
+
+

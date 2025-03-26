@@ -4,7 +4,7 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import androidx.room.TypeConverters
 
-@Entity(tableName = "products")
+@Entity(tableName = "item")
 @TypeConverters(Converters::class)
 data class ProductDbo(
     @PrimaryKey(autoGenerate = true) val id: Int = 0,
